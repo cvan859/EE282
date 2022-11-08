@@ -3,7 +3,8 @@ conda activate ee282
 
 # Directory setup and file/directory creation
 
-createProject Homework3 ~/myrepos/ee282/
+#createProject Homework3 ~/myrepos/ee282/ #Don't make a new repo inside a repo!
+mkdir Homework3 ~/myrepos/ee282
 cd myrepos/ee282/Homework3
 
 touch homework3.md

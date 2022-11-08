@@ -3,7 +3,7 @@
 #### Author: Cassandra Van
 #### Date: November 7, 2022
 
-I loaded my environment and made initial files using `code/scripts/initialSetup.sh`.
+I loaded my environment and made initial files using `code/scripts/initialSetup.sh`. I realized after the fact, though, that using `createProject` had confused my Git tracking, so I ended up pushing an inaccessible submodule of my `Homework3` folder at first. After looking around on the Internet, I deleted the internal `.git` file and renamed my `Homework3` folder so Git could recognize it again.
 
 ## Genome Assembly
 All code used for this section is noted in `code/scripts/hw3_genome_summary.sh.`
