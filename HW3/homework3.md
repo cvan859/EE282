@@ -3,18 +3,20 @@
 #### Author: Cassandra Van
 #### Date: November 7, 2022
 
-I loaded up my environment and made initial files using `code/scripts/initialSetup.sh`.
+I loaded my environment and made initial files using `code/scripts/initialSetup.sh`.
 
 ## Genome Assembly
 All code used for this section is noted in `code/scripts/hw3_genome_summary.sh.`
+
 md5sum output: `dmel-all-chromosome-r6.48.fasta.gz: OK`
 
 1. There are 137,547,960 total nucleotides, counting all the chromosome arms.
-2. There are 268 total Ns. If every chromosome arm is split on an N (using faSplitByN), there should be one less N than the number of contigs reported back for each arm.
+2. There are 268 total Ns. If every chromosome arm is split on an N (using faSplitByN), there should be one less N than the number of contigs reported back for each arm (275 contigs were reported back).
 3. There are 1870 sequences contained in the fasta.gz file, including 7 chromosome arms, 25 mapped scaffolds, and 22 unmapped scaffolds, leaving 1816 contigs.
 
 ## Annotation File
 All code used for this section is noted in `code/scripts/hw3_genome_annotation.sh`.
+
 md5sum output: `dmel-all-r6.48.gtf.gz: OK`
 
 1. There are 16 different features, in order from most common to least common: 
