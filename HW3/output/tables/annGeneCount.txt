@@ -1,0 +1,7 @@
+   4227 3R	gene
+   3653 2R	gene
+   3515 2L	gene
+   3489 3L	gene
+   2708 X	gene
+    114 4	gene
+    113 Y	gene
