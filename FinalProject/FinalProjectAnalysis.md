@@ -30,45 +30,35 @@ Those deconvoluted estimates were then used to ask more biologically relevant qu
 ## Results
 From previous work in the lab, I identified a few genes that might potentially function as endocrine communication molecules. One of these genes is CRLF2, a cytokine receptor, also called TSLPR as its ligand is TSLP, which plays a major role in acute lymphoblastic leukemia and is implicated in the development of the hematopoietic system<sup>13</sup>. From our screen, though, CRLF2 originating from the liver seemed to be correlated with changes in heart function pathways, like core contractile function and hypertrophy. This held up during both *in vitro* and *in vivo* work, so the question now is, by what mechanism does CRLF2 effect change in heart function?
 
-```
-![Fig 1A: Deconvolution methods in the liver](output/figures/deconvolution_liver/free_annotation/DeconMethodComp_liver.png)
-```
-
-```
-![Fig 1B: Deconvolution methods in the heart](output/figures/deconvolution_heart/DeconMethodComp_heart.png)
-```
+![Fig 1A](output/figures/deconvolution_liver/DeconMethodComp_liver.png)
+**Figure 1A: Deconvolution methods in the liver**
+![Fig 1B](output/figures/deconvolution_heart/DeconMethodComp_heart.png)
+**Figure 1B: Deconvolution methods in the heart**
 
 Deconvoluting bulk RNA sequencing can give us the power to more reliably correlate changes in signaling with cell types and between tissues. But we must still understand that we produce only estimates that must be validated more broadly (Fig 1A-B). Looking at CRLF2 within the liver, it seems that hepatocytes are negatively correlated with CRLF2, along with a number of immune cell types, but not some others (Fig 2A). Within the heart, the cell types are not as well defined, but while I’m not sure why hepatocytes are a cell type identified in the heart single-cell dataset, the negative correlation with them is very strong (Fig 2B). In comparison, the macrophages have a slight positive correlation, but fibroblasts seem to be the only cell type more consistently positively correlated. This may point to more subtle variance in the dataset getting amplified by the transformations of the algorithms, so requires further study and comparison.
 
-```
-![Fig 2A: CRLF2 in the liver](output/figures/CRLF2enrichment_DeconRNASeq_liver.png)
-```
+![Fig 2A](output/figures/CRLF2enrichment_DeconRNASeq_liver.png)
+**Figure 2A: CRLF2 in the liver**
 
-```
-![Fig 2B: CRLF2 in the heart](output/figures/CRLF2enrichment_DeconRNASeq_heart.png)
-```
+![Fig 2B](output/figures/CRLF2enrichment_DeconRNASeq_heart.png)
+**Figure 2B: CRLF2 in the heart**
 
 I also tried looking at how cell types might correlate across tissues in functional pathways (Fig 3A-E). While the more meaningful biological interpretation might need to wait for more technical troubleshooting of the cell type deconvolution, I think there could be much nuance gained in comparing cell types of one tissue to the expression patterns in another.
 
-```
-![Fig 3A: liver cell types with heart 'inflammatory' pathways](output/figures/crossTissueGO/heartGO_DeconRNASeq_inflammatory.png)
-```
+![Fig 3A](output/figures/crossTissueGO/heartGO_DeconRNASeq_inflammatory.png)
+**Figure 3A: Liver cell types with heart 'inflammatory pathways'
 
-```
-![Fig 3B: heart cell types with liver 'inflammatory' pathways](output/figures/crossTissueGO/liverGO_DeconRNASeq_inflammatory.png)
-```
+![Fig 3B](output/figures/crossTissueGO/liverGO_DeconRNASeq_inflammatory.png)
+**Figure 3B: heart cell types with liver 'inflammatory' pathways**
 
-```
-![Fig 3C: liver cell types with heart 'metabolism' pathways](output/figures/crossTissueGO/heartGO_DeconRNASeq_metabolism.png)
-```
+![Fig 3C](output/figures/crossTissueGO/heartGO_DeconRNASeq_metabolism.png)
+**Figure 3C: liver cell types with heart 'metabolism' pathways**
 
-```
-![Fig 3D: heart cell types with liver 'metabolism' pathways](output/figures/crossTissueGO/liverGO_DeconRNASeq_metabolism.png)
-```
+![Fig 3D](output/figures/crossTissueGO/liverGO_DeconRNASeq_metabolism.png)
+**Figure 3D: heart cell types with liver 'metabolism' pathways**
 
-```
-![Fig 3E: liver cell types with heart 'immune' pathways](output/figures/crossTissueGO/heartGO_DeconRNASeq_immune.png)
-```
+![Fig 3E](output/figures/crossTissueGO/heartGO_DeconRNASeq_immune.png)
+**Figure 3E: liver cell types with heart 'immune' pathways**
 
 ## Discussion
 I used only normalized values for both my single-cell and bulk datasets, but I intend to go back through and systematically test the effect of scaling on the various possible combinations, though that also has biological implications. In my case, I mostly want to observe the effects of the ratios of the cell types, and less the specific identification of the quantities of cell types, so perhaps a relative difference of cell types is more meaningful. So perhaps more than scaling any particular dataset, applying these methods to multiple single-cell datasets might increase my power more reliably.
