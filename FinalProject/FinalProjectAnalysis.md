@@ -46,7 +46,7 @@ Deconvoluting bulk RNA sequencing can give us the power to more reliably correla
 I also tried looking at how cell types might correlate across tissues in functional pathways (Fig 3A-E). While the more meaningful biological interpretation might need to wait for more technical troubleshooting of the cell type deconvolution, I think there could be much nuance gained in comparing cell types of one tissue to the expression patterns in another.
 
 ![Fig 3A](output/figures/crossTissueGO/heartGO_DeconRNASeq_inflammatory.png)
-**Figure 3A: Liver cell types with heart 'inflammatory pathways'
+**Figure 3A: Liver cell types with heart 'inflammatory pathways'**
 
 ![Fig 3B](output/figures/crossTissueGO/liverGO_DeconRNASeq_inflammatory.png)
 **Figure 3B: heart cell types with liver 'inflammatory' pathways**
