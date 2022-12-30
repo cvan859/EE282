@@ -1,0 +1,50 @@
+
+srun -A mseldin_lab --pty --x11 bash -i
+conda activate ee282
+
+module load R/4.1.12
+R
+packageVersion('useful')
+...
+BiocManager::install(c('useful',...))
+q()
+conda install -c conda-forge r-seuratdisk
+
+ee282=/pub/cassandv/myrepos/ee282/
+projDir=FinalProject
+
+git status
+
+cd data/raw
+wget 'https://figshare.com/ndownloader/files/34701985' -O scliver.h5ad.zip
+wget 'https://figshare.com/ndownloader/files/34701976' -O scheart.h5ad.zip
+# direct STFP upload of RData workspaces
+
+unzip scheart.h5ad.zip
+unzip scliver.h5ad.zip
+h5adtoh5Seurat TS_Heart.h5ad
+h5adtoh5seurat TS_Liver.h5ad
+
+#run through heart dataset; repeat for liver
+scProcessing TS_Heart.h5seurat
+column -s "," -t data/processed/scDF_heart.csv | less -S
+
+GTExTissuesCheck data/raw/GTEx_full.RData output/tables/GTExTissues.txt
+bulkProcessing data/raw/GTEx_full.RData 'heart' data/processed/bulkDF_heart.csv
+column -s "," -t data/processed/bulkDF_heart.csv | less -S
+
+mkdir output/figures/EnrichR_heart
+cd output/figures/EnrichR_heart
+EnrichRCheck scDF.csv #needs troubleshooting to work in Unix, R ok.
+
+mkdir output/figures/deconvolution_heart
+cd output/figures/deconvolution_heart
+ADAPTSmethods ../../../data/processed/scDF_heart ../../../data/processed/bulkDF_heart 'heart' ../../data/processed/BinnedProportions
+
+cd output/figures
+localGOI ../../data/processed/binnedProportions_heart.csv ../../data/processed/bulkDF_heart.csv 'CRLF2' 'DeconRNASeq' 'heart'
+
+mkdir crossTissueGO
+cd crossTissueGO
+GOPathwaysCheck ../../../data/raw/go_terms.RData ../../tables/GTExTissues.txt
+crossTissueGO ../../../data/raw/go_terms.RData ../../../data/processed/binnedProportions_heart.csv ../../../data/processed/bulkDF_heart.csv 'imflammatory' 'DeconRNASeq' 'heart'
